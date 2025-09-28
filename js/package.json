@@ -1,0 +1,30 @@
+{
+  "name": "siigo-invoice-cli",
+  "module": "cli.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "build:exe": "bun build src/cli.ts --outfile dist/siigo-invoice --target node",
+    "build:linux": "bun build src/cli.ts --outfile dist/siigo-invoice-linux --target bun-linux-x64",
+    "build:macos": "bun build src/cli.ts --outfile dist/siigo-invoice-macos --target bun-darwin-x64",
+    "build:windows": "bun build src/cli.ts --outfile dist/siigo-invoice-windows.exe --target bun-windows-x64",
+    "build:all": "bun run build:linux && bun run build:macos && bun run build:windows"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/commander": "^2.12.5",
+    "@types/prompts": "^2.4.9",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "ky": "^1.11.0",
+    "prompts": "^2.4.2",
+    "xlsx": "^0.18.5",
+    "zod": "^4.1.11"
+  }
+}
